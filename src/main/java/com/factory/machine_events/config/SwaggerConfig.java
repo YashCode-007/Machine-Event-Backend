@@ -20,7 +20,6 @@ public class SwaggerConfig {
                                 .contact(
                                         new Contact()
                                                 .name("Yash Rajvanshi")
-                                                .email("vanshraj0987@gmail.com")
                                                 .url("https://github.com/YashCode-007")
                                 )
                 );
