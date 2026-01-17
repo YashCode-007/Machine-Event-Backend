@@ -5,6 +5,7 @@ import com.factory.machine_events.dto.EventIngestRequest;
 import com.factory.machine_events.dto.EventStatsResponse;
 import com.factory.machine_events.service.EventIngestService;
 import com.factory.machine_events.service.EventStatsService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,6 +26,7 @@ public class EventIngestController {
 
     private final EventStatsService eventStatsService;
 
+    @Operation(summary = "Ingest Events in Batch")
     @PostMapping("/batch")
     public ResponseEntity<BatchIngestResponse> ingestBatch(
             @RequestBody List<EventIngestRequest> requests
@@ -34,6 +36,7 @@ public class EventIngestController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @Operation(summary = "Get Stats Between Start and End Date_Time")
     @GetMapping("/stats")
     public ResponseEntity<EventStatsResponse> getStats(
             @RequestParam("start")
